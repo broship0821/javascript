@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var exam = new Object(); //자바스크립트에서는 일단 객체를 생성하고 요소 만듬
+        exam.kor = 20; //여기서 바로 만들어진 것임
+        exam["eng"] = 70; //.찍어도 되고 [] 해도 됨
+        exam.math = 80;
+        alert(exam.kor + exam.math);
+
+        exam.Kor = 200; //k가 소문자가 아닌 대문자임, 만들어진걸 쓰는게 아니라 생성하고 만드는 거니 오타에 관한 오류가 많을 수 밖에 없음, 조심하기
+        alert(exam.kor + exam.math);
+
+    </script>
+</body>
+</html>
