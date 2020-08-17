@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var exam = new Object();
+        // exam.kor = 20;
+        // exam["eng"] = 70;
+        // exam.math = 80;
+        // alert(exam.kor + exam.math);
+        
+        //JSON으로 간단하게 표시하는 방법
+        //객체
+        var exam = {"kor":30, "eng":70, "math":80};
+        // alert(exam.kor + exam.eng);
+
+        //배열
+        var arr = [3,4,5,6,exam,[7,8,9]];
+        // alert(arr[5][1]);
+        // alert(arr[4].math);
+
+        //인터넷에서 데이터를 받으면 문자열 형식으로 옴 그걸 바꿔줘야됨
+        //eval()
+
+        eval('var x = 30;'); //문자열로 인식되지 않고 실행됨
+        // alert(x);
+
+        var data = '[ \
+                        {"id":1, "title":"aaa", "name":"peter"}, \
+                        {"id":2, "title":"bbb", "name":"dragon"}, \
+                        {"id":3, "title":"ccc", "name":"jungyun"} \
+                    ]';
+        // alert(data);
+        eval("var real_data = " + data + ";"); //eval의 특징
+        // alert(real_data[2].name);
+
+        //JSON parser
+        var data1 = JSON.parse('{"id":1, "title":"aaa"}'); //JSON형식 받아서 변환하기
+        //key(변수명)에 해당되는 부분 "" 생략가능, 근데 JSON.parse 쓸꺼면 무조건 "" 있어야됨
+        // alert(data1.title);
+
+        var data2 = {id:2, title:"bbb"};
+
+        var json = JSON.stringify(data2); //JSON형식으로 변환하기
+        alert(json);
+
+
+
+    </script>
+</body>
+</html>
