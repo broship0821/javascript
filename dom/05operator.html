@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // == 와 ===의 차이
+
+        var x = 3;
+        var y = 3;
+        document.write(x == y); //x,y의 값 비교
+        document.write(x === y); //주소를 담고 있는 박스가 같냐
+        //자바스크립트는 만약 값이 같으면 같은 박스에 저장시킴
+        //다르게 하는 방법:
+        var z = new Number(3);
+        document.write(x === z);
+
+        //숫자와 문자열 연산
+
+        alert(3.5+"999"); //무조건 문자열로 됨
+        alert(3.5 - "1"); //빼기는 숫자가 됨
+        alert(10>"5"); //이건 숫자로 됨
+    </script>
+</body>
+</html>

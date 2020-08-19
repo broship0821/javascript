@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = ["전", "형", "배"];
+
+        for(var i=0;i<arr.length;i++)
+            document.write(arr[i]+"<br/>");
+        //위 아래 두개 똑같음 for in 문은 향상for문처럼 값을 순회하는 것이 아닌 인덱스를 순회함
+        for(var i in arr)
+            document.write(arr[i]+"<br/>");
+        
+        document.write("<br/>");
+
+        var ob = {id:1, title:"aaa", name:"peter"};
+        for(var i in ob)
+            document.write(ob[i] + "<br/>");
+
+    </script>
+</body>
+</html>
