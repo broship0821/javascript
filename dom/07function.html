@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //자바스크립트 함수 만드는법
+        var add = new Function("x, y", "return x+y;");
+        //첫번째 문자열: 매개변수
+        //두번째 문자열: 리턴값
+        document.write(add(3,4));
+        //또다른 방법
+        var add2 = function(x, y){
+            return x + y;
+        };
+        document.write(add2(5,4));
+        //또다른 방법
+        function add3(x, y){
+            return x + y;
+        } //이떈 ; 필요없음(대입되는것이 없기 떄문)
+        document.write(add3(5,6));
+
+        //2번째 방법 제일 많이 씀
+
+    </script>
+</body>
+</html>
