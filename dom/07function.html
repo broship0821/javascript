@@ -21,9 +21,21 @@
         function add3(x, y){
             return x + y;
         } //이떈 ; 필요없음(대입되는것이 없기 떄문)
+        
         document.write(add3(5,6));
 
         //2번째 방법 제일 많이 씀
+
+        document.write("<br/><br/><br/>");
+
+        function add4(x, y){
+
+            alert(arguments[5]);
+            return x + y;
+        }
+
+        document.write(add4(1,2,3,4,5,"hello?"));
+        //x,y에 값이 들어간게 아니라 arguments의 첫번째, 두번째 인자를 지칭하는 이름일 뿐임
 
     </script>
 </body>
