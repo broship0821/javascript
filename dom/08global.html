@@ -11,6 +11,19 @@
         var a = 2; //이렇게 해도 오류나지 않음
         alert(a); 
         a = 10; //전역변수, 프로그램 실행될때 만들어짐
+
+        //closure
+        function f1(){
+            var a = 1;
+            return function f2(){
+                return a;
+            }
+        }
+        var f = f1(); //f는 f2() 함수가 됨
+        //지역변수 a는 f1이 끝나면 없어져야 되는데 f2가 클로저 역활을 해서
+        //f2가 끝날때까지 남아있게 됨
+        var a = f();
+        alert(a); //그래서 f1이 끝나도 a 사용할 수 있게됨
     </script>
 </body>
 </html>
