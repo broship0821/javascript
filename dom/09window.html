@@ -7,18 +7,25 @@
 </head>
 <body>
     <script>
-        // var x = prompt("x의 값을 입력하세요: ", 0);
-        // var y = prompt("y의 값을 입력하세요: ", 0);
+        function printResult() {
+            var x = prompt("x의 값을 입력하세요: ", 0);
+            var y = prompt("y의 값을 입력하세요: ", 0);
 
-        // alert(x+y); //전달받은 값은 문자열이 됨
+            // alert(x+y); //전달받은 값은 문자열이 됨
 
-        // x = parseInt(x);
-        // y = parseInt(y);
-        // alert(x+y);
+            x = parseInt(x);
+            y = parseInt(y);
+            alert(x+y);
+        }
 
-        var answer = confirm("정말 삭제하시겠습니까?");
-        if(answer)
-            alert("삭제되었습니다!");
+        // var answer = confirm("정말 삭제하시겠습니까?");
+        // if(answer)
+        //     alert("삭제되었습니다!");
     </script>
+    <input type="button" value="클릭" onclick="printResult();" /><br>
+    <span onclick="alert('hi~');">스팬입니다.</span>
+    <!--스크립트 영역에는 페이지가 시작하자 마자 실행됨
+        위에는 이벤트 기반, 특정 이벤트가 발생할때 실행됨-->
+
 </body>
 </html>
