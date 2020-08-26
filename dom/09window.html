@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
     <script>
+        //스크립트 부분이 위에있으면 오류남
         function printResult() {
             var x = prompt("x의 값을 입력하세요: ", 0);
             var y = prompt("y의 값을 입력하세요: ", 0);
@@ -15,15 +14,21 @@
 
             x = parseInt(x);
             y = parseInt(y);
-            alert(x+y);
+            // alert(x+y);
+            btnPrint.value = x+y;
+            // span1.innerText = x+y;
+            // btnPrint.type = "text";
         }
+        btnPrint.onclick = printResult;
 
         // var answer = confirm("정말 삭제하시겠습니까?");
         // if(answer)
         //     alert("삭제되었습니다!");
     </script>
-    <input type="button" value="클릭" onclick="printResult();" /><br>
-    <span onclick="alert('hi~');">스팬입니다.</span>
+</head>
+<body>
+    <input type="button" value="클릭" id="btnPrint" /><br>
+    <span id="span1" onclick="alert('hi~');">스팬입니다.</span>
     <!--스크립트 영역에는 페이지가 시작하자 마자 실행됨
         위에는 이벤트 기반, 특정 이벤트가 발생할때 실행됨-->
 
