@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        //스크립트 부분이 위에있으면 오류남
+        // var answer = confirm("정말 삭제하시겠습니까?");
+        // if(answer)
+        //     alert("삭제되었습니다!");
+        
         function printResult() {
             var x = prompt("x의 값을 입력하세요: ", 0);
             var y = prompt("y의 값을 입력하세요: ", 0);
@@ -15,19 +18,20 @@
             x = parseInt(x);
             y = parseInt(y);
             // alert(x+y);
+            var btnPrint = document.getElementById("btn-print");
             btnPrint.value = x+y;
             // span1.innerText = x+y;
             // btnPrint.type = "text";
         }
-        btnPrint.onclick = printResult;
-
-        // var answer = confirm("정말 삭제하시겠습니까?");
-        // if(answer)
-        //     alert("삭제되었습니다!");
+        function init() {
+            var btnPrint = document.getElementById("btn-print");
+            btnPrint.onclick = printResult;//스크립트 실행될때 btnPrint가 생성되지 않았기 때문에 오류남
+        }
+        window.onload = init;
     </script>
 </head>
 <body>
-    <input type="button" value="클릭" id="btnPrint" /><br>
+    <input type="button" value="클릭" id="btn-print" /><br>
     <span id="span1" onclick="alert('hi~');">스팬입니다.</span>
     <!--스크립트 영역에는 페이지가 시작하자 마자 실행됨
         위에는 이벤트 기반, 특정 이벤트가 발생할때 실행됨-->
