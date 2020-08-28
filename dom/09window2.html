@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var btnPrint = document.getElementById("btn-print");
+
+            btnPrint.onclick = function () {
+            var x = prompt("x의 값을 입력하세요: ", 0);
+            var y = prompt("y의 값을 입력하세요: ", 0);
+
+            x = parseInt(x);
+            y = parseInt(y);
+            
+            btnPrint.value = x+y;
+            };
+        };
+    </script>
+</head>
+<body>
+    <input type="button" value="클릭" id="btn-print" /><br>
+    <span id="span1" onclick="alert('hi~');">스팬입니다.</span>
+
+</body>
+</html>
