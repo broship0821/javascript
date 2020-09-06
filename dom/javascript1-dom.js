@@ -1,3 +1,16 @@
+//Ex5: 엘리먼트 노드의 속성 변경
+window.addEventListener("load", function(){
+    var section = document.querySelector("#section5");
+    var srcInput = section.querySelector(".src-input");
+    var imgSelect = section.querySelector(".img-select");
+    var changeButton = section.querySelector(".change-button");
+    var img = section.querySelector(".img");
+
+    changeButton.onclick = function(){
+        img.src = "imgs/" + srcInput.value;
+        //img.src = "imgs/" + imgSelect.value;
+    }
+});
 //Ex4: ChildeNodes를 이용한 노드 선택
 window.addEventListener("load", function(){
     var section4 = document.querySelector("#section4");
