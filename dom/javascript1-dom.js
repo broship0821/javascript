@@ -3,18 +3,40 @@ window.addEventListener("load", function(){
     var section = document.querySelector("#section6");
     
     var titleInput = section.querySelector(".title-input");
-    var menuListDiv = section.querySelector(".menu-list");
+    var menuListUl = section.querySelector(".menu-list");
     var addButton = section.querySelector(".add-button");
     var delButton = section.querySelector(".del-button");
 
     addButton.onclick = function() {
+
         var title = titleInput.value;
-        var txtNode = document.createTextNode(title);
-        menuListDiv.appendChild(txtNode);
+
+        menuListUl.innerHTML += '<li><a href="">' + title + '</a></li>';
+        //이렇게 하면 한줄로 작성 가능하나 입력할때 마다 객체가 다시 만들어져서 무거워짐
+        //많은 내용을 넣을땐 밑에 방식을 사용하는것이 더 나음
+        //------------------------------------------------------
+
+        // var title = titleInput.value;
+        // var txtNode = document.createTextNode(title);
+
+        // var aNode = document.createElement("a");
+        // aNode.href="";
+        // aNode.appendChild(txtNode);
+
+        // var liNode = document.createElement("li");
+        // liNode.appendChild(aNode);
+
+        // menuListUl.appendChild(liNode);
+
+        //------------------------------------------------------
+
+        // var title = titleInput.value;
+        // var txtNode = document.createTextNode(title);
+        // menuListDiv.appendChild(txtNode);
     };
     delButton.onclick = function() {
-        var txtNode = menuListDiv.childNodes[0];
-        menuListDiv.removeChild(txtNode);
+        var txtNode = menuListUl.childNodes[0];
+        menuListUl.removeChild(txtNode);
     };
 });
 //Ex5: 엘리먼트 노드의 속성 & CSS 속성 변경
