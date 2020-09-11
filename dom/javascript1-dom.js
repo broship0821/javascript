@@ -11,7 +11,11 @@ window.addEventListener("load", function(){
 
         var title = titleInput.value;
 
-        menuListUl.innerHTML += '<li><a href="">' + title + '</a></li>';
+        var html = '<a href="">' + title + '</a>';
+        var li = document.createElement("li");
+        li.innerHTML = html;
+
+        menuListUl.appendChild(li);
         //이렇게 하면 한줄로 작성 가능하나 입력할때 마다 객체가 다시 만들어져서 무거워짐
         //많은 내용을 넣을땐 밑에 방식을 사용하는것이 더 나음
         //------------------------------------------------------
@@ -35,8 +39,9 @@ window.addEventListener("load", function(){
         // menuListDiv.appendChild(txtNode);
     };
     delButton.onclick = function() {
-        var txtNode = menuListUl.childNodes[0];
-        menuListUl.removeChild(txtNode);
+        // var txtNode = menuListUl.childNodes[0];
+        var liNode = menuListUl.children[0];
+        menuListUl.removeChild(liNode);
     };
 });
 //Ex5: 엘리먼트 노드의 속성 & CSS 속성 변경
