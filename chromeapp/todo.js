@@ -4,7 +4,22 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODO_LS = 'toDos';
 
-const toDos = [];
+let toDos = [];
+
+function deleteToDo(event){
+    //.target html정보 가져올수 있음
+    const li = event.target.parentNode;
+    toDoList.removeChild(li);//html상에서 지우기
+    const cleanToDos = toDos.filter(function(toDo){
+        return toDo.id !== parseInt(li.id);
+    });
+    /*
+    .filter: toDos배열을 하나씩 돌면서 return조건이 참인것만 남김
+    위 조건에 충족하는 새로운 배열 cleanToDos 생성
+    */
+   toDos = cleanToDos;
+   saveToDos();
+}
 
 function saveToDos(){
     localStorage.setItem(TODO_LS, JSON.stringify(toDos));
@@ -18,6 +33,7 @@ function paintToDo(text){
     const span = document.createElement("span");
     const newId = toDos.length +1;
     delBtn.innerText = "❌"
+    delBtn.addEventListener("click",deleteToDo);
     span.innerText = text;
     li.appendChild(delBtn);
     li.appendChild(span);
@@ -42,7 +58,10 @@ function handleSubmit(event){
 function loadToDos(){
     const loadedToDos = localStorage.getItem(TODO_LS);
     if(loadedToDos !== null){
-
+        const parsedToDos = JSON.parse(loadedToDos);
+        parsedToDos.forEach(function(toDo){
+            paintToDo(toDo.text);
+        });
     }
 }
 
