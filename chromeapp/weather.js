@@ -16,7 +16,7 @@ function getWeather(lat, lon){
 }
 
 function saveCoords(coordsObj){
-    localStorage.setItem(COORDS, JSON.stringify(coordsObj));
+    localStorage.setItem(COORDS, JSON.stringify(coordsObj));//JSON(객체) -> 배열
 }
 
 function handleGeoSucces(position){
@@ -45,7 +45,7 @@ function loadCoords(){
     if(loadedCoords===null){
         askForCoords();
     } else {
-        const parsedCoords = JSON.parse(loadedCoords);
+        const parsedCoords = JSON.parse(loadedCoords); //배열 -> JSON(객체)
         getWeather(parsedCoords.latitude, parsedCoords.longitude);
     }
 }
