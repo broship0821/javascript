@@ -4,6 +4,7 @@ const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
+const saveBtn = document.getElementById("jsSave");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 700;
@@ -11,6 +12,9 @@ const CANVAS_SIZE = 700;
 //css사이즈 외에도 픽셀 사이즈를 따로 지정해줘야됨 css와 같은 크기로
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
+//같은 원리로 html뿐 아니라 캠버스 자체 색을 하얀색으로 700 700 맞춰서 초기화
+ctx.fillStyle = "white";
+ctx.fillRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
 
 ctx.strokeStyle = INITIAL_COLOR;
 ctx.fillStyle = INITIAL_COLOR;
@@ -64,12 +68,28 @@ function handleCanvasClick(){
         ctx.fillRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
 }
 
+function handleCM(event){
+    event.preventDefault(); //이벤트 막기
+}
+
+function handleSaveClick(){
+    const image = canvas.toDataURL();
+    //a태그의 href에 그림 url 넣고 다운로드 속성 넣으면 다운받아짐
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "amezing art[✨]";
+    link.click();
+    //save버튼이 클릭되면 안보이는 a태그 만들고 a태그가 클릭되게함
+    //a가 클릭되면 현재 이미지를 url로 다운받음
+}
+
 if(canvas){
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
     canvas.addEventListener("mouseup", stopPainting);
     canvas.addEventListener("mouseleave", stopPainting);
     canvas.addEventListener("click", handleCanvasClick);
+    canvas.addEventListener("contextmenu", handleCM);
 }
 
 Array.from(colors).forEach(color => 
@@ -82,4 +102,8 @@ if(range){
 
 if(mode){
     mode.addEventListener("click", handleModeClick);
+}
+
+if(saveBtn){
+    saveBtn.addEventListener("click", handleSaveClick);
 }
